@@ -56,7 +56,7 @@ int main(int argc, char** argv) {
 	}
 #endif
 
-	char* tmp = calloc(0x11, sizeof(char));
+	unsigned char* tmp = calloc(0x11, sizeof(char));
 	if (tmp == NULL) {
 		printf("Error creating reading buffer\n");
 		return 1;
@@ -71,7 +71,7 @@ int main(int argc, char** argv) {
 	for (size_t i = 0; read; i += 0x10) {
 		printf("%08zx\t", i);
 		for (int j = 0; j < read; j++) {
-			printf("%02x", (unsigned char)(tmp[j]));
+			printf("%02x", tmp[j]);
 			if (j != read - 1) putchar(' ');
 		}
 
